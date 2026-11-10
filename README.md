@@ -8,7 +8,7 @@
 
 - **Institución:** Universidad de San Buenaventura (Sede Bogotá)
 - **Programa:** Tecnología en Automatización Industrial
-- **Semestre:** Primer Semestre
+- **Semestre:** Segundo Semestre
 - **Asignatura:** Era Digital
 
 ---
