@@ -1,226 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoDrive Bike</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adaptive Manufacturing Machine — Gemelo Digital & Propuesta</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
-
 <body>
 
-<!-- 🌌 SONIDOS -->
-<audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b8b5c1b7.mp3"></audio>
-<audio id="hoverSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4b6b2f0d2c.mp3"></audio>
-
-<!-- HEADER -->
-<header class="header">
-
-    <div class="menu container">
-
-        <a href="#" class="logo">EcoDrive Bike</a>
-
-        <nav class="navbar">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#informacion">Info</a></li>
-                <li><a href="#beneficios">Ventajas</a></li>
-                <li><a href="#tecnologia">Tecnología</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-                <li><a href="#analisis">Análisis</a></li>
-            </ul>
-        </nav>
-
+  <!-- ENCABEZADO -->
+  <header>
+    <div>
+      <h1>⚙️ ADAPTIVE MANUFACTURING MACHINE</h1>
+      <p>Estación Inteligente de Mecanizado que reconoce la pieza y adapta automáticamente sus parámetros en vivo</p>
     </div>
+    <div class="badge-patent">
+      Línea A • Mecanizado Adaptativo | Ref: Patente CN120386187A (2025)
+    </div>
+  </header>
 
-    <div class="header-content container" id="inicio">
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="main-grid">
 
-        <div class="header-info">
+    <!-- REPRESENTACIÓN GRÁFICA DE LA MÁQUINA -->
+    <div class="panel">
+      <div class="panel-title">
+        <span>🤖 Gemelo Digital en Vivo — Estación CNC con Visión y Sensores</span>
+        <span class="status-pill" id="machineStateBadge">● ESCANEANDO Y MECANIZANDO</span>
+      </div>
 
-            <h1>EcoDrive Bike</h1>
+      <div class="machine-viewport">
+        <canvas id="machineCanvas" width="700" height="390"></canvas>
+      </div>
 
-            <p>
-                EcoDrive Bike es un sistema de movilidad eléctrica diseñado para transformar bicicletas tradicionales en vehículos híbridos eficientes.
-            </p>
-
-            <p>
-                Su objetivo es reducir el esfuerzo físico del usuario y mejorar la movilidad urbana con energía sostenible.
-            </p>
-
-            <p>
-                Proyecto basado en tecnología eléctrica, diseño mecánico y eficiencia energética.
-            </p>
-
+      <div class="controls-bar">
+        <div class="material-btns">
+          <button class="btn" id="btn-BALSO" onclick="selectMaterial('BALSO')">
+            🟩 Espuma / Balso (15 mm)
+          </button>
+          <button class="btn active-mat" id="btn-MDF" onclick="selectMaterial('MDF')">
+            🟦 Madera MDF (18 mm)
+          </button>
+          <button class="btn" id="btn-ACRILICO" onclick="selectMaterial('ACRILICO')">
+            🟪 Acrílico Duro (10 mm)
+          </button>
         </div>
 
+        <button class="btn btn-knot" id="btnKnot" onclick="toggleKnot()">
+          ⚠️ Simular Desviación / Nudo Duro
+        </button>
+      </div>
     </div>
 
-</header>
+    <!-- PARÁMETROS Y SUPERVISIÓN -->
+    <div class="panel">
+      <div class="panel-title">
+        <span>📡 Parámetros Adaptativos y Supervisión en Tiempo Real</span>
+      </div>
 
-<!-- INFORMACIÓN -->
-<section id="informacion" class="section container">
-
-    <div class="card">
-
-        <h2>¿Qué es EcoDrive Bike?</h2>
-
-        <p>
-        El proyecto EcoDrive Bike se fundamenta en la integración de un sistema de asistencia eléctrica diseñado para mejorar la eficiencia de la movilidad en bicicletas convencionales. Su arquitectura tecnológica está pensada para ser accesible, adaptable y de bajo consumo energético, permitiendo su implementación en contextos urbanos reales.
-
-El componente principal del sistema es un motor eléctrico de corriente continua (DC), seleccionado por su eficiencia, bajo costo de mantenimiento y facilidad de integración con sistemas mecánicos existentes. Este motor permite generar la fuerza necesaria para asistir el pedaleo del usuario, reduciendo el esfuerzo físico sin eliminar la experiencia de conducción tradicional.
-
-La energía del sistema es suministrada por una batería de litio recargable de alta densidad energética, la cual ofrece una autonomía prolongada y tiempos de recarga relativamente cortos. Este tipo de batería ha sido elegido debido a su estabilidad, durabilidad y capacidad de almacenamiento eficiente en comparación con otras tecnologías de baterías convencionales.
-
-Para optimizar el rendimiento del sistema, se incorpora un controlador inteligente de potencia, el cual regula la energía enviada al motor dependiendo del nivel de pedaleo del usuario y las condiciones del terreno. Este controlador permite un uso más eficiente de la energía, evitando sobrecargas y mejorando la autonomía total del sistema.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- BENEFICIOS -->
-<section id="beneficios" class="section container">
-
-    <div class="card">
-
-  <h2>🌱 Beneficios</h2>
-
-<ul>
-    <li><strong>Reducción del esfuerzo físico:</strong> el motor eléctrico asiste el pedaleo, facilitando los recorridos largos o con inclinación.</li>
-
-    <li><strong>Menor contaminación ambiental:</strong> promueve el uso de energía eléctrica en lugar de combustibles fósiles, reduciendo la huella de carbono.</li>
-
-    <li><strong>Ahorro económico:</strong> disminuye gastos en transporte diario y mantenimiento en comparación con otros medios de movilidad.</li>
-
-    <li><strong>Movilidad eficiente:</strong> permite desplazamientos más rápidos y prácticos dentro de la ciudad.</li>
-
-    <li><strong>Tecnología sostenible:</strong> impulsa el uso de soluciones innovadoras enfocadas en el cuidado del medio ambiente.</li>
-</ul>
-
-    </div>
-
-</section>
-
-<!-- TECNOLOGÍA -->
-<section id="tecnologia" class="section container">
-
-    <div class="card">
-
-        <h2>⚙️ Tecnología</h2>
-
-<ul>
-    <li><strong>Motor eléctrico de corriente continua eficiente:</strong> proporciona la potencia necesaria para asistir el pedaleo de manera estable y silenciosa.</li>
-
-    <li><strong>Batería de litio recargable:</strong> ofrece alta autonomía, buena capacidad de almacenamiento energético y tiempos de recarga eficientes.</li>
-
-    <li><strong>Controlador inteligente de potencia:</strong> regula la energía enviada al motor según la velocidad, el pedaleo y las condiciones del terreno.</li>
-
-    <li><strong>Sistema adaptable a cualquier bicicleta:</strong> diseño modular que permite instalación sencilla sin necesidad de modificaciones estructurales complejas.</li>
-</ul>
-    </div>
-
-</section>
-
-<!-- 🔥 ANÁLISIS -->
-<section id="analisis" class="section container reveal">
-
-    <div class="card">
-
-        <h2>Análisis del proyecto</h2>
-
-        <p>Justificación, impacto, limitaciones y delimitación del proyecto EcoDrive Bike.</p>
-
-        <p>
-            Este proyecto busca mejorar la movilidad urbana mediante un sistema de asistencia eléctrica en bicicletas convencionales.
-        </p>
-
-        <p>
-            Su objetivo principal es reducir el esfuerzo físico del usuario, disminuir la contaminación ambiental y mejorar la eficiencia del transporte.
-        </p>
-
-        <p>
-            También tiene impacto académico, social, económico y tecnológico.
-        </p>
-
-        <p>
-            Es una propuesta innovadora de movilidad sostenible para entornos urbanos.
-        </p>
-
-        <a href="analisis.html" class="btn-1">Descubre más</a>
-
-    </div>
-
-</section>
-
-<!-- EQUIPO -->
-<section id="equipo" class="section container">
-
-    <h2 style="text-align:center;">Equipo</h2>
-
-    <div class="equipo">
-
-        <div class="miembro">
-            <img src="NICOLASITO.jpeg">
-            <h3>Nicolas Garcia</h3>
-            <h3>Lider </h3>
-            <p>@NikisRikis02</p>
+      <!-- SENSORES Y ACTUADORES -->
+      <div class="telemetry-grid">
+        <div class="metric-box">
+          <div class="label">Velocidad Husillo</div>
+          <div class="value" id="valRpm" style="color: var(--cyan);">3200 RPM</div>
+          <div class="sub" id="subVision">Cámara: Madera MDF (18 mm)</div>
         </div>
 
-        <div class="miembro">
-            <img src="JUAN PABLO.jpeg">
-            <h3>Juan Pablo Escobar</h3>
-            <h3>Desarrollador</h3>
-            <p>@juanpablo160</p>
+        <div class="metric-box">
+          <div class="label">Velocidad de Avance</div>
+          <div class="value" id="valFeed" style="color: var(--green);">7.5 mm/s</div>
+          <div class="sub" id="subFeed">Ajuste automático según dureza</div>
         </div>
 
+        <div class="metric-box">
+          <div class="label">Corriente / Fuerza</div>
+          <div class="value" id="valForce" style="color: var(--amber);">2.80 A</div>
+          <div class="sub">Sensor de carga en el motor</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="label">Vibración Estructural</div>
+          <div class="value" id="valVib" style="color: var(--purple);">3.40 mm/s²</div>
+          <div class="sub">Acelerómetro en cabezal Z</div>
+        </div>
+      </div>
+
+      <!-- LAS 5 ETAPAS -->
+      <div class="steps-list">
+        <div class="step-item active-step" id="step1">
+          <span class="step-dot"></span>
+          <span>1. Identifica el material y sus dimensiones (Cámara + Láser ToF).</span>
+        </div>
+
+        <div class="step-item active-step" id="step2">
+          <span class="step-dot"></span>
+          <span>2. Determina automáticamente la configuración óptima de trabajo.</span>
+        </div>
+
+        <div class="step-item active-step" id="step3">
+          <span class="step-dot"></span>
+          <span>3. Ajusta velocidad (RPM), avance (mm/s) y fuerza de corte.</span>
+        </div>
+
+        <div class="step-item active-step" id="step4">
+          <span class="step-dot"></span>
+          <span>4. Supervisa el resultado en vivo (Corriente y Vibración).</span>
+        </div>
+
+        <div class="step-item" id="step5">
+          <span class="step-dot"></span>
+          <span id="step5Text">5. Lazo Cerrado en espera: Sin desviaciones detectadas.</span>
+        </div>
+      </div>
+
+      <!-- OSCILOSCOPIO -->
+      <div class="scope-box">
+        <div class="scope-header">
+          <span>📈 OSCILOSCOPIO EN TIEMPO REAL</span>
+          <span>
+            <strong style="color: #22c55e;">▬ Avance (mm/s)</strong> |
+            <strong style="color: #f59e0b;">▬ Esfuerzo / Vibración</strong>
+          </span>
+        </div>
+
+        <canvas id="scopeCanvas" width="520" height="110"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTACIÓN DE LA PROPUESTA -->
+  <div class="docs-grid">
+
+    <div class="doc-card border-green">
+      <h3 style="color: var(--green);">🎯 ¿Por qué nos gusta esta propuesta?</h3>
+
+      <p style="margin-bottom: 8px;">
+        No estamos construyendo simplemente una máquina automática repetitiva:
+        <strong>estamos construyendo una máquina que siente y se adapta a lo que está fabricando</strong>.
+      </p>
+
+      <ul>
+        <li>Elimina el error humano al cambiar entre lotes de distinto grosor o dureza.</li>
+        <li>Protege la herramienta (broca/fresa) frenando el avance si detecta sobre-esfuerzo.</li>
+      </ul>
     </div>
 
-</section>
+    <div class="doc-card border-cyan">
+      <h3 style="color: var(--cyan);">📜 Referencia Tecnológica (Patente 2025)</h3>
 
-<!-- FOOTER -->
-<footer class="footer-final">
+      <p>
+        <strong>Patente China CN120386187A</strong><br />
+        <em>Presentada por Dongguan Temy Numerical Control Machinery (2025).</em>
+      </p>
 
-    <h3>-EcoDrive Bike</h3>
-    <p>-Universidad de San Buenaventura</p>
-    <p>© 2026</p>
-    <p>-Era Digital</p>
-    <p>-1 semestre</p>
+      <p style="margin-top: 8px;">
+        Describe un método de optimización adaptativa de parámetros de mecanizado a partir de la identificación de la pieza y el monitoreo de datos del proceso en tiempo real.
+      </p>
+    </div>
 
-</footer>
+    <div class="doc-card border-amber">
+      <h3 style="color: var(--amber);">🇨🇴 ¿Qué tan novedosa es en Colombia?</h3>
 
-<!-- 🔊 SCRIPT -->
-<script>
+      <ul>
+        <li><strong>Univ. Nacional (UNAL):</strong> Investigación en optimización de diseño de maquinaria industrial.</li>
+        <li><strong>UTP (Pereira):</strong> Laboratorios de manufactura flexible.</li>
+        <li><strong>INGAUTIN:</strong> Modernización y <em>retrofit</em> de automatización industrial.</li>
+        <li><strong>Oportunidad:</strong> No se ha encontrado una máquina local que reproduzca exactamente esta adaptación automática de corte por reconocimiento de pieza.</li>
+      </ul>
+    </div>
 
-const clickSound = document.getElementById("clickSound");
-const hoverSound = document.getElementById("hoverSound");
+    <div class="doc-card border-purple">
+      <h3 style="color: var(--purple);">🛠️ ¿Cómo la construiríamos en la Universidad?</h3>
 
-document.querySelectorAll("a").forEach(el => {
-    el.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
-    });
+      <ul>
+        <li><strong>Mecánica:</strong> Estructura de desplazamiento y motor de mecanizado de baja potencia.</li>
+        <li><strong>Visión y Sensores:</strong> Cámara para identificar piezas + sensores de fuerza/corriente y vibración.</li>
+        <li><strong>Control:</strong> Controlador con software de reconocimiento y ajuste automático de velocidad y avance.</li>
+      </ul>
+    </div>
 
-    el.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play();
-    });
-});
+  </div>
 
-const reveal = document.querySelector(".reveal");
-
-window.addEventListener("scroll", () => {
-    if (!reveal) return;
-
-    const top = reveal.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (top < windowHeight - 100) {
-        reveal.classList.add("active");
-    }
-});
-
-</script>
+  <!-- ARCHIVO JAVASCRIPT -->
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,347 @@
+:root {
+  --bg-dark: #070b14;
+  --bg-panel: #0f172a;
+  --bg-card: #1e293b;
+  --border: #334155;
+  --cyan: #38bdf8;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --purple: #a855f7;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  padding: 24px;
+  line-height: 1.5;
+}
+
+/* ENCABEZADO */
+header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--cyan);
+  border-radius: 12px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 1.6rem;
+  color: var(--cyan);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.badge-patent {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* LAYOUT PRINCIPAL */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1150px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.panel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.status-pill {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--green);
+  border: 1px solid var(--green);
+  font-weight: 600;
+}
+
+/* CANVAS DE LA MÁQUINA */
+.machine-viewport {
+  position: relative;
+  background: radial-gradient(circle at center, #111827 0%, #060911 100%);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 390px;
+  margin-bottom: 14px;
+}
+
+canvas#machineCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* CONTROLES DE LA MÁQUINA */
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  background: #090d16;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.material-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--cyan);
+}
+
+.btn.active-mat {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.btn-knot {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--red);
+  color: #fca5a5;
+}
+
+.btn-knot.active {
+  background: var(--red);
+  color: white;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+/* TELEMETRÍA Y SENSORES */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.metric-box {
+  background: #090d16;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  position: relative;
+}
+
+.metric-box .label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.metric-box .value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  font-family: 'Consolas', monospace;
+  margin: 4px 0;
+}
+
+.metric-box .sub {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* FLUJO DE LAS 5 ETAPAS */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #090d16;
+  border: 1px solid #1e293b;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  transition: all 0.25s;
+}
+
+.step-item.active-step {
+  border-color: var(--cyan);
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.step-item.alert-step {
+  border-color: var(--amber);
+  background: rgba(245, 158, 11, 0.15);
+  color: #fde68a;
+  font-weight: 700;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #475569;
+  flex-shrink: 0;
+}
+
+.active-step .step-dot {
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.alert-step .step-dot {
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+}
+
+/* OSCILOSCOPIO */
+.scope-box {
+  background: #060911;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.scope-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+canvas#scopeCanvas {
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+
+/* TARJETAS INFERIORES DE DOCUMENTACIÓN */
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.doc-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.doc-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-card ul {
+  padding-left: 18px;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.doc-card li {
+  margin-bottom: 6px;
+}
+
+.doc-card p {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.border-green {
+  border-top: 4px solid var(--green);
+}
+
+.border-cyan {
+  border-top: 4px solid var(--cyan);
+}
+
+.border-amber {
+  border-top: 4px solid var(--amber);
+}
+
+.border-purple {
+  border-top: 4px solid var(--purple);
+}
